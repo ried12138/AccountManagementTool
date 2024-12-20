@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accountmanagementtool.controller.SearchModularController">
+   <children>
+      <SplitPane dividerPositions="0.1346153846153846" prefHeight="629.0" prefWidth="751.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="87.0">
+               <children>
+                  <Button layoutX="6.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="导入" />
+                  <Button layoutX="6.0" layoutY="64.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="批量导入" />
+                  <Button layoutX="6.0" layoutY="113.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="导出" />
+                  <Button layoutX="6.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#handleExitAction" prefHeight="41.0" prefWidth="85.0" text="退出" />
+                  <Button layoutX="6.0" layoutY="388.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="设置" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane layoutX="-14.666666666666666" layoutY="-1.0" prefHeight="497.0" prefWidth="691.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab onSelectionChanged="#getOnSelectionChangedQuery" text="全局">
+                           <content>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Pagination fx:id="paging" layoutX="-1.0" layoutY="-13.0" prefHeight="471.0" prefWidth="661.0" visible="false" />
+                                    <Label layoutX="218.0" layoutY="128.0" prefHeight="28.0" prefWidth="78.0" text="密码：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="username" layoutX="287.0" layoutY="97.0" prefHeight="28.0" prefWidth="350.0" text="username" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Label>
+                                    <Label layoutX="218.0" layoutY="98.0" prefHeight="28.0" prefWidth="78.0" text="账号：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="password" layoutX="286.0" layoutY="128.0" prefHeight="28.0" prefWidth="233.0" text="password" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Label>
+                                    <Label layoutX="181.0" layoutY="168.0" prefHeight="28.0" prefWidth="108.0" text="绑定邮箱：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="181.0" layoutY="226.0" prefHeight="28.0" prefWidth="108.0" text="绑定问题：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="181.0" layoutY="254.0" prefHeight="28.0" prefWidth="108.0" text="绑定答案：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator layoutX="28.0" layoutY="162.0" prefHeight="4.0" prefWidth="604.0" />
+                                    <Label layoutX="181.0" layoutY="282.0" prefHeight="28.0" prefWidth="108.0" text="加密方式：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="360.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#copyPwd" prefHeight="33.0" prefWidth="108.0" text="复制密码">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="162.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#decode" prefHeight="33.0" prefWidth="108.0" text="解密明文">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="email" layoutX="287.0" layoutY="168.0" prefHeight="28.0" prefWidth="350.0" text="email" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Label>
+                                    <Label fx:id="issue" layoutX="287.0" layoutY="227.0" prefHeight="28.0" prefWidth="350.0" text="issue" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="answer" layoutX="285.0" layoutY="256.0" prefHeight="28.0" prefWidth="350.0" text="answer" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="encryption" layoutX="285.0" layoutY="283.0" prefHeight="28.0" prefWidth="350.0" text="encryption" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="124.0" layoutY="314.0" prefHeight="28.0" prefWidth="160.0" text="最后一次更新时间：">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dateString" layoutX="284.0" layoutY="314.0" prefHeight="28.0" prefWidth="350.0" text="date" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="146.0" layoutY="69.0" prefHeight="28.0" prefWidth="150.0" text="账号所属平台：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="platfrom" layoutX="289.0" layoutY="67.0" prefHeight="28.0" prefWidth="309.0" text="platfrom" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="163.0" layoutY="196.0" prefHeight="28.0" prefWidth="128.0" text="绑定手机号：">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="telNum" layoutX="287.0" layoutY="198.0" prefHeight="28.0" prefWidth="350.0" text="tel-num" visible="false">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="platformSearch" layoutX="131.0" layoutY="19.0" onMouseClicked="#platformSearchList" prefHeight="28.0" prefWidth="217.0" promptText="账号所属平台" />
+                                    <Button fx:id="search" layoutX="385.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="76.0" text="查询">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Button>
+                                    <Separator layoutX="26.0" layoutY="56.0" prefHeight="4.0" prefWidth="604.0" />
+                                    <Label fx:id="pwdExplain" layoutX="545.0" layoutY="136.0" text="解密提示" visible="false">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <textFill>
+                                          <RadialGradient centerX="0.5" centerY="0.5" focusAngle="-29.52" radius="0.5">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.9210526347160339" green="0.017056530341506004" blue="0.017056530341506004" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.7352667450904846" green="0.7669172883033752" blue="0.13390620052814484" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </RadialGradient>
+                                       </textFill>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </content>
+                        </Tab>
+                        <Tab text="新增账号">
+                           <content>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Pane prefHeight="439.0" prefWidth="634.0">
+                                       <children>
+                                          <Label layoutX="132.0" layoutY="110.0" prefHeight="28.0" prefWidth="78.0" text="密码：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="132.0" layoutY="82.0" prefHeight="28.0" prefWidth="78.0" text="账号：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="93.0" layoutY="202.0" prefHeight="28.0" prefWidth="108.0" text="绑定邮箱：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="75.0" layoutY="236.0" prefHeight="28.0" prefWidth="129.0" text="绑定手机号：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="91.0" layoutY="268.0" prefHeight="28.0" prefWidth="108.0" text="绑定问题：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator layoutX="19.0" layoutY="182.0" prefHeight="4.0" prefWidth="604.0" />
+                                          <Label layoutX="91.0" layoutY="299.0" prefHeight="28.0" prefWidth="108.0" text="绑定答案：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="257.0" layoutY="351.0" mnemonicParsing="false" onAction="#submitSave" prefHeight="33.0" prefWidth="108.0" text="提交/保存">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Button>
+                                          <TextField fx:id="userNameNew" layoutX="201.0" layoutY="83.0" prefHeight="25.0" prefWidth="276.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></TextField>
+                                          <TextField fx:id="passwordNew" layoutX="201.0" layoutY="111.0" prefHeight="25.0" prefWidth="278.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></TextField>
+                                          <TextField fx:id="emailNew" layoutX="202.0" layoutY="205.0" prefHeight="25.0" prefWidth="278.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></TextField>
+                                          <TextField fx:id="telNumNew" layoutX="202.0" layoutY="237.0" prefHeight="25.0" prefWidth="278.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></TextField>
+                                          <TextField fx:id="issueNew" layoutX="203.0" layoutY="269.0" prefHeight="25.0" prefWidth="278.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></TextField>
+                                          <TextField fx:id="answerNew" layoutX="202.0" layoutY="300.0" prefHeight="25.0" prefWidth="278.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></TextField>
+                                          <Label fx:id="warningUser" layoutX="500.0" layoutY="83.0" prefHeight="28.0" prefWidth="78.0" text="label" visible="false">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="0.9621451104100947" endY="1.0" startX="0.3217665615141956">
+                                                   <stops>
+                                                      <Stop>
+                                                         <color>
+                                                            <Color red="0.9210526347160339" green="0.017056530341506004" blue="0.017056530341506004" />
+                                                         </color>
+                                                      </Stop>
+                                                      <Stop offset="1.0">
+                                                         <color>
+                                                            <Color red="1.0" green="1.0" blue="1.0" />
+                                                         </color>
+                                                      </Stop>
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label fx:id="warningPwd" layoutX="499.0" layoutY="116.0" prefHeight="28.0" prefWidth="78.0" text="label" visible="false">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="0.9621451104100947" endY="1.0" startX="0.3217665615141956">
+                                                   <stops>
+                                                      <Stop>
+                                                         <color>
+                                                            <Color red="0.9210526347160339" green="0.017056530341506004" blue="0.017056530341506004" />
+                                                         </color>
+                                                      </Stop>
+                                                      <Stop offset="1.0">
+                                                         <color>
+                                                            <Color red="1.0" green="1.0" blue="1.0" />
+                                                         </color>
+                                                      </Stop>
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label layoutX="64.0" layoutY="51.0" prefHeight="28.0" prefWidth="158.0" text="账号所属平台：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="100.0" layoutY="149.0" prefHeight="28.0" prefWidth="108.0" text="加密方式：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="platformSearchOne" editable="true" layoutX="201.0" layoutY="51.0" onMouseClicked="#platformSearchOne" prefHeight="28.0" prefWidth="281.0" promptText="账号所属平台" />
+                                          <ComboBox fx:id="encryptionNew" layoutX="199.0" layoutY="149.0" prefHeight="28.0" prefWidth="171.0" />
+                                          <Label fx:id="warningPlatform" layoutX="501.0" layoutY="51.0" prefHeight="28.0" prefWidth="78.0" text="label" visible="false">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="0.9621451104100947" endY="1.0" startX="0.3217665615141956">
+                                                   <stops>
+                                                      <Stop>
+                                                         <color>
+                                                            <Color red="0.9210526347160339" green="0.017056530341506004" blue="0.017056530341506004" />
+                                                         </color>
+                                                      </Stop>
+                                                      <Stop offset="1.0">
+                                                         <color>
+                                                            <Color red="1.0" green="1.0" blue="1.0" />
+                                                         </color>
+                                                      </Stop>
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </content>
+                        </Tab>
+                        <Tab onSelectionChanged="#getOnSelectionChangedUpdate" text="更新账号">
+                           <content>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Pane prefHeight="439.0" prefWidth="634.0">
+                                       <children>
+                                          <Label layoutX="131.0" layoutY="116.0" prefHeight="28.0" prefWidth="57.0" text="密码：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="131.0" layoutY="77.0" prefHeight="28.0" prefWidth="62.0" text="账号：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="97.0" layoutY="268.0" prefHeight="28.0" prefWidth="108.0" text="绑定问题：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="97.0" layoutY="299.0" prefHeight="28.0" prefWidth="108.0" text="绑定答案：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator layoutX="19.0" layoutY="185.0" prefHeight="4.0" prefWidth="604.0" />
+                                          <Button layoutX="320.0" layoutY="366.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="33.0" prefWidth="108.0" text="删除账号">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Button>
+                                          <Button layoutX="174.0" layoutY="366.0" mnemonicParsing="false" onAction="#submitUpdate" prefHeight="33.0" prefWidth="108.0" text="提交/保存">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Button>
+                                          <TextField fx:id="pwdUpdata" layoutX="190.0" layoutY="117.0" prefHeight="25.0" prefWidth="278.0" />
+                                          <TextField fx:id="issueUpdata" layoutX="195.0" layoutY="265.0" prefHeight="25.0" prefWidth="278.0" />
+                                          <TextField fx:id="answerUpdata" layoutX="196.0" layoutY="296.0" prefHeight="25.0" prefWidth="278.0" />
+                                          <Label fx:id="promptPwd" layoutX="486.0" layoutY="120.0" prefHeight="28.0" prefWidth="78.0" text="promptPwd" visible="false">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="platformSearchUpdata" editable="true" layoutX="191.0" layoutY="44.0" onAction="#platformSearchInput" onMouseClicked="#platformSearchUpdata" prefHeight="27.0" prefWidth="269.0" promptText="选择账号所属平台" />
+                                          <Label layoutX="64.0" layoutY="44.0" prefHeight="28.0" prefWidth="139.0" text="账号所属平台：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="emailUpdata" layoutX="196.0" layoutY="204.0" prefHeight="25.0" prefWidth="278.0" />
+                                          <TextField fx:id="telNumUpdata" layoutX="196.0" layoutY="235.0" prefHeight="25.0" prefWidth="278.0" />
+                                          <Label layoutX="98.0" layoutY="204.0" prefHeight="28.0" prefWidth="108.0" text="绑定邮箱：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="80.0" layoutY="236.0" prefHeight="28.0" prefWidth="129.0" text="绑定手机号：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="96.0" layoutY="150.0" prefHeight="28.0" prefWidth="85.0" text="加密方式：">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="encryptionUpdata" layoutX="190.0" layoutY="150.0" prefHeight="28.0" prefWidth="176.0" />
+                                          <ComboBox fx:id="userNameBox" editable="true" layoutX="191.0" layoutY="81.0" onAction="#userNameBoxInput" onMouseClicked="#userNameBoxInputClick" prefHeight="27.0" prefWidth="269.0" promptText="账号信息" />
+                                          <Label fx:id="prompt" layoutX="249.0" layoutY="327.0" prefHeight="28.0" prefWidth="187.0" text="prompt" visible="false">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </content>
+                        </Tab>
+                      <Tab text="关于">
+                           <content>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Pane layoutX="-8.0" prefHeight="437.0" prefWidth="674.0">
+                                       <children>
+                                          <TextArea fx:id="aboutText" layoutX="14.0" prefHeight="427.0" prefWidth="650.0" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </content></Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>
